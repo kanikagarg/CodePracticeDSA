@@ -44,11 +44,18 @@ Constraints:
 class Solution:
     #Function to rotate an array by d elements in counter-clockwise direction. 
     def rotateArr(self,A,D,N):
-        for j in range(0,D):
-            first = A[0]
-            for i in range(0,N-1):
-                A[i]=A[i+1]
-            A[N-1]=first
+        while D > N:
+            D = D-N
+        start = A[0:D]
+        i =0
+        j =0
+        while(i!=N):
+            if i+D < N:
+                A[i]=A[i+D]
+            else:
+                A[i]=start[j]
+                j= j+1
+            i=i+1
             
         return A
             
